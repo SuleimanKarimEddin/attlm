@@ -1,0 +1,85 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id       Int    @id @default(autoincrement())
+  email    String
+  password String
+}
+
+model Plan {
+  id          Int        @id @default(autoincrement())
+  name        String
+  description String
+  price       Float
+  options     String[]
+  customers   Customer[]
+}
+
+model Customer {
+  id        Int            @id @default(autoincrement())
+  name      String
+  email     String         @unique
+  startDate String
+  endDate   String
+  password  String
+  planId    Int?
+  chats     ChatCustomer[]
+  plan      Plan?          @relation(fields: [planId], references: [id])
+  faqs      FAQ[]
+
+  FAQAnswer FAQAnswer[]
+}
+
+model FAQ {
+  id         Int      @id @default(autoincrement())
+  data       String
+   vector Unsupported("vector(384)")
+  customerId Int
+  customer   Customer @relation(fields: [customerId], references: [id])
+}
+model FAQAnswer {
+  id           Int      @id @default(autoincrement())
+  question     String   
+  answer       String  
+  questionVector Unsupported("vector(384)")
+  customerId   Int
+  customer     Customer @relation(fields: [customerId], references: [id])
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+
+model ChatGuest {
+  id        Int                @id @default(autoincrement())
+  guestId   String
+  message   String
+  type      MessageTypeWebsite
+  createdAt DateTime           @default(now())
+}
+
+model ChatCustomer {
+  id         Int                  @id @default(autoincrement())
+  customerId Int
+  type       MessageTypeDashboard
+  message    String
+  createdAt  DateTime             @default(now())
+  customer   Customer             @relation(fields: [customerId], references: [id])
+}
+
+enum MessageTypeWebsite {
+  GUEST
+  SYSTEM
+}
+
+enum MessageTypeDashboard {
+  CUSTOMER
+  SYSTEM
+}

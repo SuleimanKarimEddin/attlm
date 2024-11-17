@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: ankane/pgvector
+    env_file:
+      - .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - mynetwork
+
+volumes:
+  pgdata:
+
+networks:
+  mynetwork:
+    driver: bridge
