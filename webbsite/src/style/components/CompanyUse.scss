@@ -1,0 +1,56 @@
+.Stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    background:#333333;
+    padding-bottom: 90px;
+    color: #fff;
+    .title {
+      max-width: 70vw;
+      margin-top: 20px;
+      text-align: center;
+      font-size: 2.6rem;
+    }
+    
+  }
+  .subTitle {
+    font-size: 1.2rem;
+
+  }
+  
+  .holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+    width: 100%;
+    position: relative; 
+    margin-block: 30px;
+  }
+  
+  .scroll-container {
+    display: flex;
+    gap: 80px;
+    width: max-content; 
+  
+  }
+  
+  .items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    font-size: 1.2rem;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+ 

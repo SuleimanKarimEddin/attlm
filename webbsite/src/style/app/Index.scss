@@ -1,0 +1,15 @@
+@import './Variables.scss';
+
+
+//// components
+
+@import '../components/Index.scss';
+
+/// pages
+
+@import '../pages/Index.scss';
+
+body,html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 150px;
+}

@@ -1,0 +1,105 @@
+.main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 80px;
+    background: var(--bg);
+    color: #f4f4f4;
+    padding: 3rem;
+    position: relative;
+  }
+  
+  .price {
+    // background: #ffffff; /* Clean white background */
+    width: 350px;
+    height: auto;
+    padding: 2rem;
+    border-radius: 10px; 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-bottom: 50px;
+    border: 1px solid var(--border); 
+  }
+  
+  .price:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .price h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff; 
+    margin-bottom: 15px;
+  }
+  
+  .price_discription {
+    font-size: 15px;
+    color: #888888; 
+    margin-bottom: 20px;
+    line-height: 1.6; 
+  }
+  
+  .price h2 {
+    font-size: 36px;
+    color: #fff; 
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  
+  .price_checkbox {
+    margin-bottom: 20px;
+    width: 100%; 
+  }
+  
+  .price_checkbox div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  
+  .price_checkbox input {
+    margin-right: 12px;
+    transform: scale(1.1);
+  }
+  
+  .price_button {
+    padding: 12px 40px;
+    border: none;
+    border-radius: 8px;
+    background-color:  var(--primary); 
+    color: white;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600; 
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  }
+  
+  .price_button:hover {
+    background-color: var(--primary); 
+    transform: translateY(-3px);
+  }
+  
+  
+  @media (max-width: 768px) {
+    .price {
+      width: 100%;
+      padding: 2rem;
+    }
+  
+    .main {
+      padding: 1rem;
+    }
+  
+    .price_button {
+      width: 100%;
+    }
+  }
+  
